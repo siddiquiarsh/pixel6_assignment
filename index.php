@@ -48,7 +48,7 @@ include("function.php");
                     </td>
                 </tr>
                 <tr>
-                    <td><h3><label for="">Cptcha</label></h3></td>
+                    <td><h3><label for="">Captcha</label></h3></td>
                     <td colspan="4">
                 <!----- show captcha text in this container--------->
                         <span id="captcha_container" ></span>
