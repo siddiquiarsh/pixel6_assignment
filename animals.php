@@ -103,12 +103,13 @@ echo "you are the visitor no .".$_SESSION['count'];
             {
 
 /**this function is call first time after save the data */
-if(isset($_REQUEST['clearfilter']))
+
+                showallanimal();
+            }
+        if(isset($_REQUEST['clearfilter']))
 {
     showallanimal();
 }
-                showallanimal();
-            }
         ?>
        
     </table>
