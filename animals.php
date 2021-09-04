@@ -36,7 +36,6 @@ echo "you are the visitor no .".$_SESSION['count'];
        <input type="radio" name="sort" id="date" value="date">Date
        <input type="radio" name="sort" id="name"value="animal_name">Name
        <input type="submit" value="apply filter and sort"name="filter">
-       <input type="submit" value="Clear Filter" name="clearfilter">
     </form>
 
 <!--table where  all animals data is shown  and filter data is also shown here --->
@@ -106,10 +105,7 @@ echo "you are the visitor no .".$_SESSION['count'];
 
                 showallanimal();
             }
-        if(isset($_REQUEST['clearfilter']))
-{
-    showallanimal();
-}
+
         ?>
        
     </table>
