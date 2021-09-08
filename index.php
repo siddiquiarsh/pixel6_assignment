@@ -1,13 +1,9 @@
-<?php
-include("function.php");
-?>
 <html>
     <head>
         <link rel="stylesheet" href="css/style.css">
     </head>
 <body>
-    <form id="add_animal" action="submission.php" method="post" enctype="multipart/form-data" onsubmit=" return checkcaptcha();"autocomplete="off">
-        <div><h1 id="form-title">Add Animal Info.</h1></div>
+    <form id="add_animal" action="submission.php" method="post" enctype="multipart/form-data" onsubmit=" return checkcaptcha();"autocomplete="off">        <div><h1 id="form-title">Add Animal Info.</h1></div>
         <table align="center">
             <tr>
                 <td><h3><label for="">Name</label></h3></td>
@@ -16,12 +12,12 @@ include("function.php");
                 </td>
                 </tr>
                 <tr>
-                    <td><h3><label for="">Category</label></h3></td>
+                    <td><h3><label for="">Select Category</label></h3></td>
                     <td colspan="4">
                         <select class="dropdown"name="category" id="category"required>
-                            <option>--select Category--</option>
-                            <!--show all select option dynamiclly from database-->
-                        <?php showSelectAll("animal_category","category_name");?>
+                        <option value="Carnivores">Carnivores</option>
+                        <option value="Omnivores">Omnivores</option>
+                        <option value="Herbivores">Herbivores</option>
                         </select>
                     </td>
                 </tr>
@@ -38,12 +34,13 @@ include("function.php");
                     </td>
                 </tr>
                 <tr>
-                    <td><h3><label for="">Life expectancy</label></h3></td>
+                    <td><h3><label for="">Select Life expectancy</label></h3></td>
                     <td colspan="4">
                         <select name="life_expectancy"class="dropdown" id="life_expectancy"required>
-                            <option>--Select life expectancy--</option>
-            <!-----show life expectancy dropdown from database dynamically------->
-                            <?php showSelectAll("life_expectancy","life_expectancy_value");?>
+                            <option value="0-1 Year">0-1 Year</option>
+                            <option value="1-5 Year">1-5 Year</option>
+                            <option value="5-10 Year">5-10 Year</option>
+                            <option value="10+">10+</option>
                         </select>
                     </td>
                 </tr>
@@ -54,7 +51,10 @@ include("function.php");
                         <span id="captcha_container" ></span>
                         <input type="text" name="captcha_value" id="captcha_value"placeholder="Enter Captcha">
                     </td>
-                    <div id="error"></div>
+                    <div id="error"><?php
+                     if(isset($_REQUEST['error_msg']))
+                     echo $_REQUEST['error_msg'];
+                     ?></div>
                 </tr>
                 <tr align="center">
                     <td colspan="8"><input type="submit" value="Submit"></td>
