@@ -26,7 +26,6 @@ session_start();
 #####store the visitor  value in session's count variable #######
 
 $_SESSION['count']=$a;
-
 $connectionId=connectdatabase();
 $animal_name=$_POST['animal_name'];
 $count=$_POST['count'];
@@ -75,12 +74,12 @@ if(move_uploaded_file($animal_img_tmp_name,$animal_img_path))
     }else
     {
 /*if data is not save in database then control redirect index.php page */
-        header("location:addanimalInfo.php?error_msg=data not saved");
+        header("location:index.php?error_msg=data not saved");
     }
 }else
 {
 /**this header is work when photo is not upload  */
-    header("location:addanimalInfo.php?error_msg=data not saved");
+    header("location:index.php?error_msg=data not saved");
 }
  
 }
